@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View,Button } from 'react-native';
 
 import styles from './styles/global.js'
+import { Compter } from './Compter.js';
+import { useCounter } from './libs/hooks/useCounter.js';
 export default function App() {
+  const [count,increment] =useCounter();
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <Text style={styles.text}>Hello Arick Bulakali {count}</Text>
+  <Button title={`Increment: ${count}`} onPress={increment}/>
+      <Compter/>
       <StatusBar style="auto" />
     </View>
   );

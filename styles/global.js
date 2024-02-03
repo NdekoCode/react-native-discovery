@@ -7,5 +7,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    text:{
+        fontSize:25,
+        fontWeight:"700",
+    }
   });
   export default styles;
