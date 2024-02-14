@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { Text, View, Button, TextInput } from "react-native";
 
+import styles from "./styles/global.js";
+import { Compter } from "./Compter.js";
+import { useCounter } from "./libs/hooks/useCounter.js";
+import UserComp from "./UserComp.js";
 export default function App() {
+  const [count, increment] = useCounter();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={styles.containerShadow}>
+      <TextInput placeholder="Entrer votre nom" style={styles.input}/>
+      <Text style={styles.text}>Hello Arick Bulakali {count}</Text>
+      <Button title={`Increment: ${count}`} onPress={increment} />
+      <Compter initialValue={5} step={2}>Hello</Compter>
+      <UserComp/>
       <StatusBar style="auto" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
