@@ -8,6 +8,16 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    input:{
+      borderStyle:'solid',
+      borderColor:'gray',
+      height:45,
+      padding:10,
+      borderRadius:8,
+      backgroundColor:'#fff',
+      width:'100%',
+      borderWidth:1,
+    },
     text:{
         fontSize:25,
         fontWeight:"700",
