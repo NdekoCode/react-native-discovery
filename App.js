@@ -20,7 +20,7 @@ export default function App() {
   },[])
   return (
     <View style={appStyles.container}>
-        <FlatList data={obj} refreshControl={<RefreshControl onRefresh={handleRefreshing} refreshing={isRefreshing}/>} keyExtractor={(_,index)=>index} renderItem={({item})=>(<UserItem user={item}/>)}/>
+        <FlatList data={obj} refreshControl={<RefreshControl colors={['red','yellow']} onRefresh={handleRefreshing} refreshing={isRefreshing}/>} keyExtractor={(_,index)=>index} renderItem={({item})=>(<UserItem user={item}/>)}/>
     </View>
   );
 }
