@@ -9,6 +9,8 @@ export const appStyles = StyleSheet.create({
 
   userItem:{
     paddingVertical:12,
+    margin:10,
+    width:350,
     marginBottom:12,
     backgroundColor:'#10c5fb',
     paddingHorizontal:10,
