@@ -9,6 +9,7 @@ export const appStyles = StyleSheet.create({
 
   userItem:{
     paddingVertical:12,
+    margin:10,
     marginBottom:12,
     backgroundColor:'#10c5fb',
     paddingHorizontal:10,
@@ -21,5 +22,8 @@ export const appStyles = StyleSheet.create({
       fontWeight:'500',
       fontSize:16,
       textTransform:'capitalize'
+  },sectionText:{
+    textAlign:'center'
   }
+
 });

@@ -1,4 +1,4 @@
-export const obj = [
+export const familyData = [
     {
       role: "Père",
       data: ["Stan", 45]
