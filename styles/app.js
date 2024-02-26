@@ -24,6 +24,18 @@ export const appStyles = StyleSheet.create({
       textTransform:'capitalize'
   },sectionText:{
     textAlign:'center'
+  },
+  inputContainer:{
+    marginBottom:15,
+  },
+  textInput:{
+    borderColor:'#ccc',
+    borderWidth:0.5,
+    padding:10,
+    fontSize:18,
+    color:'#aaa',
+    flexGrow:1,
+    marginBottom:10
   }
 
 });
