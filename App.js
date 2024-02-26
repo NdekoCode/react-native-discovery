@@ -12,7 +12,7 @@ export default function App() {
   {/* <FamilyApp/> */}
   {/* <SectionFamily/> */}
   <TextInputProps/>
-  <TextInputProps/>
+  {/* <TextInputProps/> */}
   </View>
   )
 }

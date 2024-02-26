@@ -1,5 +1,4 @@
-import { Alert, FlatList, RefreshControl, SectionList, Text, View} from "react-native";
-import { UserItem } from "./UserItem";
+import { Alert, SectionList, Text, View} from "react-native";
 import { useEffect, useState } from "react";
 import { appStyles } from "../styles/app";
 import { familyData } from "../data/constants";
