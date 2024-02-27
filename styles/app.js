@@ -7,14 +7,15 @@ export const appStyles = StyleSheet.create({
     padding:20,
   },
   buttonText:{
-    paddingHorizontal:15,
-    paddingVertical:10,
+    padding:10,
+    minHeight:50,
+    justifyContent:'center',
     backgroundColor:'blue',
     color:'#fff',
     borderRadius:10,
     text:{
       color:'#fff',
-      fontSize:14
+      fontSize:15
     }
   }
   ,

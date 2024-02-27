@@ -1,10 +1,14 @@
 import { Image, View } from "react-native";
 import { TextInputProps } from "./components/TextInputProps";
 import { appStyles } from "./styles/app";
+import Header from "./components/Header";
 
 export default function App() {
-  const containerStyle = { ...appStyles.container, marginTop: 20 };
+  const containerStyle = { ...appStyles.container, marginTop: 20,flex:1,height:'100%' };
   return (
+    <View>
+      <Header/>
+
     <View style={containerStyle}>
       <View
         style={{
@@ -26,6 +30,7 @@ export default function App() {
       {/* <SectionFamily/> */}
       <TextInputProps />
       {/* <TextInputProps/> */}
+    </View>
     </View>
   );
 }
