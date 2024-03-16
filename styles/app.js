@@ -6,7 +6,33 @@ export const appStyles = StyleSheet.create({
     alignItems:'stretch',
     padding:20,
   },
-
+  buttonText:{
+    padding:10,
+    minHeight:50,
+    justifyContent:'center',
+    backgroundColor:'blue',
+    color:'#fff',
+    borderRadius:10,
+    text:{
+      color:'#fff',
+      fontSize:15
+    }
+  }
+  ,
+  modalContainer: {
+    flex: 1,
+    alignContent:'center',
+    justifyContent:'center',
+    padding:40,
+    backgroundColor: "rgba(0,0,0,0.2)",
+  },
+  modalStyle:{
+    maxHeight:550,
+    width:'100%',
+    margin:20,
+    backgroundColor:'#3333'
+  }
+,
   userItem:{
     paddingVertical:12,
     margin:10,
@@ -24,6 +50,18 @@ export const appStyles = StyleSheet.create({
       textTransform:'capitalize'
   },sectionText:{
     textAlign:'center'
+  },
+  inputContainer:{
+    marginBottom:15,
+  },
+  textInput:{
+    borderColor:'#ccc',
+    borderWidth:0.5,
+    padding:10,
+    fontSize:18,
+    color:'#aaa',
+    flexGrow:1,
+    marginBottom:10
   }
 
 });
