@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text } from "react-native";
 const appStyles = StyleSheet.create({
   container: {
     justifyContent: "center",
@@ -8,11 +8,11 @@ const appStyles = StyleSheet.create({
 });
 export const BeginNative = () => {
   return (
-    <View style={appStyles.container}>
+    <SafeAreaView>
       <Text>Hello</Text>
       <Text>Hello</Text>
       <Text>Hello</Text>
       <Text>Hello</Text>
-    </View>
+    </SafeAreaView>
   );
 };

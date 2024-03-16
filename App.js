@@ -1,5 +1,12 @@
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { BeginNative } from "./BeginNative";
 
 export default function App() {
-  return <BeginNative />;
+  return (
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <BeginNative />
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
 }
