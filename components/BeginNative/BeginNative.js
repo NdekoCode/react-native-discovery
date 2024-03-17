@@ -1,12 +1,11 @@
-import { Text, View } from "react-native";
-import { beginStyles } from "./BeginNative.style";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { FlexDemo } from "../FlexDemo/FlexDemo";
 export const BeginNative = () => {
   return (
-    <View style={beginStyles.container}>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={{ backgroundColor: "gray", flex: 1 }}>
+        <FlexDemo />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
