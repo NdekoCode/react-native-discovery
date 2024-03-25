@@ -2,22 +2,22 @@ import { StyleSheet } from "react-native";
 
 export const tempStyle = StyleSheet.create({
   container: {
-    backgroundColor: "green",
     justifyContent: "center",
     alignItems: "center",
     flex: 1,
+    padding: 20,
   },
   workspace: {
     minHeight: 490,
     minWidth: 350,
-    width: "85%",
     justifyContent: "center",
     alignItems: "center",
     rowGap: 55,
   },
   textInputContainer: {
-    width: "100%",
     flexDirection: "row",
+    width: "100%",
+    alignSelf: "stretch", // Pour override le `alignItems` du parent
     borderRadius: 12,
     backgroundColor: "#fff",
     alignItems: "center",
@@ -25,12 +25,12 @@ export const tempStyle = StyleSheet.create({
     paddingHorizontal: 15,
   },
   textInput: {
-    color: "#333",
-    padding: 15,
+    color: "#111",
+    padding: 16,
     fontWeight: "500",
   },
   textInputLabel: {
-    fontSize: 25,
+    fontSize: 20,
     color: "#111",
   },
   buttonApp: {
@@ -45,8 +45,8 @@ export const tempStyle = StyleSheet.create({
     },
   },
   textOutput: {
-    fontSize: 65,
+    fontSize: 75,
     color: "white",
-    fontWeight: "600",
+    fontWeight: "500",
   },
 });
