@@ -8,8 +8,7 @@ import { useState } from "react";
 import coldBackground from "./assets/cold.png";
 import { DEFAULT_TEMPERATURE, DEFAULT_UNIT } from "./libs/data/constants";
 import {
-  celciusToFahrenheit,
-  fahrenheitToCelcius,
+  convertTemperatureTo,
   getOppositeUnit,
 } from "./services/temperature.service";
 const tempToDisplay = {
@@ -19,33 +18,32 @@ const tempToDisplay = {
 export const TempConverter = () => {
   const [temp, setTemp] = useState(DEFAULT_TEMPERATURE);
   const [unit, setUnit] = useState(DEFAULT_UNIT);
+  const oppositUnit = getOppositeUnit(unit);
   const [temperatureDisplay, setTemperatureDisplay] = useState(
-    DEFAULT_TEMPERATURE
+    convertTemperatureTo(oppositUnit, DEFAULT_TEMPERATURE)
   );
+  console.log(temperatureDisplay, oppositUnit);
   const onChangeText = (value) => {
-    setTemp(Number(value));
+    const inputValue = Number(value);
+    value = !isNaN(inputValue) ? inputValue : 0;
+    setTemp(value);
   };
   const handleConverter = () => {
-    if (unit === "C") {
-      setTemperatureDisplay(celciusToFahrenheit(temp));
-      setUnit("F");
-    } else {
-      setTemperatureDisplay(fahrenheitToCelcius(temp));
-      setUnit("C");
-    }
+    setUnit(oppositUnit);
+  };
+  const getTempConverter = () => {
+    const value = convertTemperatureTo(oppositUnit, temp);
+    return !isNaN(value) ? value.toFixed(1) : 0;
   };
   return (
     <SafeAreaProvider>
       <ImageBackground
-        source={temperatureDisplay > 0 ? hotBackground : coldBackground}
+        source={getTempConverter() > 0 ? hotBackground : coldBackground}
         style={{ ...tempStyle.container }}
       >
         <SafeAreaView>
           <View style={tempStyle.workspace}>
-            <TemperatureDisplay
-              value={temperatureDisplay}
-              unit={getOppositeUnit(unit)}
-            />
+            <TemperatureDisplay value={getTempConverter()} unit={oppositUnit} />
             <TemperatureInput
               value={temp}
               unit={unit}
@@ -56,7 +54,7 @@ export const TempConverter = () => {
               style={tempStyle.buttonApp}
             >
               <Text style={tempStyle.buttonApp.text}>
-                Convertir en {tempToDisplay[getOppositeUnit(unit)]}
+                Convertir en {tempToDisplay[unit]}
               </Text>
             </TouchableOpacity>
           </View>
