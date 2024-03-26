@@ -4,30 +4,26 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import hotBackground from "./assets/hot.png";
 import { TemperatureInput } from "./components/TemperatureInput";
 import { TemperatureDisplay } from "./components/TemperatureDisplay";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import coldBackground from "./assets/cold.png";
-import { UNITS } from "./libs/data/constants";
+import { DEFAULT_TEMPERATURE, DEFAULT_UNIT } from "./libs/data/constants";
+import {
+  celciusToFahrenheit,
+  fahrenheitToCelcius,
+  getOppositeUnit,
+} from "./services/temperature.service";
 const tempToDisplay = {
-  C: "Fahrenheit",
-  F: "Celcius",
+  C: "Celcius",
+  F: "Fahrenheit",
 };
 export const TempConverter = () => {
-  const [temp, setTemp] = useState(0);
-  const [unit, setUnit] = useState("C");
-  const [temperatureDisplay, setTemperatureDisplay] = useState(0);
-  useEffect(() => {
-    const initialTemp = celciusToFahrenheit(temp);
-    setTemperatureDisplay(initialTemp);
-    setUnit("F");
-  }, []);
+  const [temp, setTemp] = useState(DEFAULT_TEMPERATURE);
+  const [unit, setUnit] = useState(DEFAULT_UNIT);
+  const [temperatureDisplay, setTemperatureDisplay] = useState(
+    DEFAULT_TEMPERATURE
+  );
   const onChangeText = (value) => {
     setTemp(Number(value));
-  };
-  const celciusToFahrenheit = (value) => {
-    return (value * 9) / 5 + 32;
-  };
-  const fahrenheitToCelcius = (value) => {
-    return (value - 32) / (9 / 5);
   };
   const handleConverter = () => {
     if (unit === "C") {
@@ -46,10 +42,13 @@ export const TempConverter = () => {
       >
         <SafeAreaView>
           <View style={tempStyle.workspace}>
-            <TemperatureDisplay value={temperatureDisplay} unit={UNITS[unit]} />
+            <TemperatureDisplay
+              value={temperatureDisplay}
+              unit={getOppositeUnit(unit)}
+            />
             <TemperatureInput
               value={temp}
-              unit={tempToDisplay[unit][0]}
+              unit={unit}
               onChangeText={onChangeText}
             />
             <TouchableOpacity
@@ -57,7 +56,7 @@ export const TempConverter = () => {
               style={tempStyle.buttonApp}
             >
               <Text style={tempStyle.buttonApp.text}>
-                Convertir en {UNITS[unit]}
+                Convertir en {tempToDisplay[getOppositeUnit(unit)]}
               </Text>
             </TouchableOpacity>
           </View>

@@ -1,4 +1,4 @@
-export const familyData = [
+const familyData = [
   {
     role: "Père",
     data: ["Stan", 45],
@@ -24,8 +24,11 @@ export const familyData = [
     data: ["Klaus", 30],
   },
 ];
-
-export const UNITS = {
-  C: "Celcius",
-  F: "Fahrenheit",
+const DEFAULT_UNIT = "C";
+const DEFAULT_TEMPERATURE = 0;
+const UNITS = {
+  celsius: "C",
+  fahrenheit: "F",
 };
+
+export { UNITS, DEFAULT_UNIT, DEFAULT_TEMPERATURE, familyData };
