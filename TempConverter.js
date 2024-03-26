@@ -5,11 +5,8 @@ import hotBackground from "./assets/hot.png";
 import { TemperatureInput } from "./components/TemperatureInput";
 import { TemperatureDisplay } from "./components/TemperatureDisplay";
 import { useEffect, useState } from "react";
-// import coldBackground from './assets/cold.png';
-const tempCorresponding = {
-  C: "Celcius",
-  F: "Fahrenheit",
-};
+import coldBackground from "./assets/cold.png";
+import { UNITS } from "./libs/data/constants";
 const tempToDisplay = {
   C: "Fahrenheit",
   F: "Celcius",
@@ -17,10 +14,11 @@ const tempToDisplay = {
 export const TempConverter = () => {
   const [temp, setTemp] = useState(0);
   const [unit, setUnit] = useState("C");
-  const [unitToDisplay, setUnitToDisplay] = useState("C");
   const [temperatureDisplay, setTemperatureDisplay] = useState(0);
   useEffect(() => {
-    handleConverter();
+    const initialTemp = celciusToFahrenheit(temp);
+    setTemperatureDisplay(initialTemp);
+    setUnit("F");
   }, []);
   const onChangeText = (value) => {
     setTemp(Number(value));
@@ -43,12 +41,12 @@ export const TempConverter = () => {
   return (
     <SafeAreaProvider>
       <ImageBackground
-        source={hotBackground}
+        source={temperatureDisplay > 0 ? hotBackground : coldBackground}
         style={{ ...tempStyle.container }}
       >
         <SafeAreaView>
           <View style={tempStyle.workspace}>
-            <TemperatureDisplay value={temperatureDisplay} unit={unit} />
+            <TemperatureDisplay value={temperatureDisplay} unit={UNITS[unit]} />
             <TemperatureInput
               value={temp}
               unit={tempToDisplay[unit][0]}
@@ -59,7 +57,7 @@ export const TempConverter = () => {
               style={tempStyle.buttonApp}
             >
               <Text style={tempStyle.buttonApp.text}>
-                Convertir en {tempToDisplay[unit]}
+                Convertir en {UNITS[unit]}
               </Text>
             </TouchableOpacity>
           </View>
