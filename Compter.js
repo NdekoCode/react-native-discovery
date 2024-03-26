@@ -1,7 +1,7 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import { useCounter } from "./libs/hooks/useCounter";
 
-export const Compter = ({ initialValue = 0, step = 1,children }) => {
+export const Compter = ({ initialValue = 0, step = 1, children }) => {
   const [count, increment, decrement] = useCounter(initialValue, step);
   return (
     <View style={compterStyle.view}>
@@ -14,9 +14,9 @@ export const Compter = ({ initialValue = 0, step = 1,children }) => {
 };
 
 const compterStyle = StyleSheet.create({
-  view:{
-    color:'green',
-    fontSize:'25px',
-    gap:10
-  }
-})
+  view: {
+    color: "green",
+    fontSize: "25px",
+    gap: 10,
+  },
+});

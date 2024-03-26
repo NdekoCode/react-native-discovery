@@ -8,27 +8,32 @@ import {
   Text,
   Alert,
 } from "react-native";
-import { appStyles } from "../styles/app";
 import { useState } from "react";
+import appStyle from "../styles/app.style";
 
 export const TextInputProps = () => {
   const [isVisible, setIsVisible] = useState(false);
   const onHandlePress = () => {
     Keyboard.dismiss();
-    handleClose()
+    handleClose();
   };
   const handlePress = () => {
     setIsVisible((c) => !c);
   };
   const handleClose = () => {
-    Alert.alert("Add product", "Your product is added", [{ text: "compris" ,onPress:handlePress}], {
-      cancelable: true,
-    });
+    Alert.alert(
+      "Add product",
+      "Your product is added",
+      [{ text: "compris", onPress: handlePress }],
+      {
+        cancelable: true,
+      }
+    );
   };
   return (
-    <View style={appStyles.inputContainer}>
+    <View style={appStyle.inputContainer}>
       <Pressable onPress={handlePress} style={appStyles.buttonText}>
-        <Text style={appStyles.buttonText.text}>Add new Product</Text>
+        <Text style={appStyle.buttonText.text}>Add new Product</Text>
       </Pressable>
       <Modal
         onRequestClose={handleClose}
@@ -36,10 +41,12 @@ export const TextInputProps = () => {
         animationType="slide"
         transparent
       >
-        <View style={appStyles.modalContainer}>
-          <View style={{backgroundColor:'#fff',borderRadius:10,padding:20,}}>
+        <View style={appStyle.modalContainer}>
+          <View
+            style={{ backgroundColor: "#fff", borderRadius: 10, padding: 20 }}
+          >
             <TextInput
-              style={{...appStyles.textInput,borderRadius:4}}
+              style={{ ...appStyle.textInput, borderRadius: 4 }}
               placeholder="Enter your new product"
               secureTextEntry={true}
               onSubmitEditing={Keyboard.dismiss}

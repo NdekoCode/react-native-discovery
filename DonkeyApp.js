@@ -1,11 +1,11 @@
 import { Image, View } from "react-native";
 import Header from "./components/Header";
 import { TextInputProps } from "./components/TextInputProps";
-import { appStyles } from "./styles/app";
+import appStyle from "./styles/app.style";
 
 export const DonkeyApp = () => {
   const containerStyle = {
-    ...appStyles.container,
+    ...appStyle.container,
     marginTop: 20,
     flex: 1,
     height: "100%",
